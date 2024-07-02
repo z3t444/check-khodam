@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/asset/css.css">
+    <title>Check Kodam kamu saat ini</title>
+  </head>
+  <body>
+    <div>
+      <h1 class="heading-text">Check kodam kamu saat ini dengan klik Pintar</h1>
+    </div>
+    <button class="button" id="button-pintar">Pintar</button>
+    <button class="button" id="button-bodoh">tolol</button>
+
+    <script>
+      function moveButtonRandomly() {
+        var button = document.getElementById("button-pintar");
+        var maxX = window.innerWidth - button.offsetWidth;
+        var maxY = window.innerHeight - button.offsetHeight;
+        var newX = Math.floor(Math.random() * maxX);
+        var newY = Math.floor(Math.random() * maxY);
+        button.style.position = "absolute";
+        button.style.left = newX + "px";
+        button.style.top = newY + "px";
+      }
+
+      document.getElementById("button-pintar").addEventListener("mouseover", function () {
+        moveButtonRandomly();
+      });
+
+      document.getElementById("button-bodoh").addEventListener("click", function () {
+        var alertBox = document.createElement("div");
+        alertBox.className = "alert";
+        var emoji = document.createElement("div");
+        emoji.textContent = "😜";
+        emoji.className = "emoji";
+        var message = document.createElement("div");
+        message.textContent = "akhirnya sadar diri!";
+        message.style.fontWeight = "bold";
+        alertBox.appendChild(emoji);
+        alertBox.appendChild(message);
+        document.body.appendChild(alertBox);
+      });
+    </script>
+  </body>
+</html>
